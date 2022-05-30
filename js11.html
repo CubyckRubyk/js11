@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<!-- -створити форму з інпутами для name та age.-->
+<!--При відправці форми записати об'єкт в localstorage-->
+<!--<form id="form">-->
+<!--    <label>Name-->
+<!--        <input id="name" type="text">-->
+<!--    </label>-->
+<!--    <label>Age-->
+<!--        <input id="age" type="number">-->
+<!--    </label>-->
+<!--</form>-->
+<!--<button id="btn" type="submit">OK</button>-->
+<!--<script>-->
+<!--    const {name, age} = document.forms.form;-->
+<!--    const btn = document.getElementById('btn');-->
+<!--    const key = 'key';-->
+<!--    const save = (name, age) => {-->
+<!--      const obj = {-->
+<!--          name,-->
+<!--          age-->
+<!--      }-->
+<!--            localStorage.setItem(key, JSON.stringify(obj));-->
+<!--    }-->
+<!--    btn.onclick = () => {-->
+<!--        save(name.value, age.value);-->
+<!--    }-->
+
+<!--</script>-->
+<!-- -створити форму з інпутами для model,type та volume автівки.-->
+<!--при відпарвці форми об'єкти зберігаються в масиві в локальному сховищі.-->
+<!--<form id="form2">-->
+<!--    <label>Model-->
+<!--        <input id="model" type="text">-->
+<!--    </label>-->
+<!--    <label>Type-->
+<!--        <input id="type" type="text">-->
+<!--    </label>-->
+<!--    <label>Volume-->
+<!--        <input id="volume" type="number">-->
+<!--    </label>-->
+<!--    <button id="btn2">OK</button>-->
+<!--</form>-->
+
+<!--<script>-->
+<!--    const {model, type, volume }  = document.forms.form2;-->
+<!--    const btn2 = document.getElementById('btn2');-->
+<!--    const key = 'key';-->
+<!--    const save2 = (model, type, volume) => {-->
+<!--        const store = JSON.parse(localStorage.getItem(key)) || [];-->
+<!--        store.push({model, type, volume});-->
+
+<!--        localStorage.setItem(key, JSON.stringify(store));-->
+<!--    }-->
+<!--    btn2.onclick = () => {-->
+<!--        save2(model.value, type.value, volume.value);-->
+<!--    }-->
+<!--</script>-->
+
+
+ <form name="car" >
+     <label>
+         <input type="text" name="model">
+     </label>
+     <label>
+        <input type="text" name="type">
+    </label>
+     <label>
+        <input type="number" name="volume">
+     </label>
+     <button id="btn">Click</button>
+ </form>
+<script>
+    const { model, type, volume } = document.forms.car;
+    const btn = document.getElementById('btn');
+    const key = "key";
+
+    const save = (model, type, volume) => {
+        const store = JSON.parse(localStorage.getItem(key)) || [];
+        store.push({model, type, volume});
+        localStorage.setItem(key, JSON.stringify(store));
+    }
+    btn.onclick = () =>{
+        save(model.value, type.value, volume.value);
+    }
+</script>
+
+
+
+</body>
+</html>
