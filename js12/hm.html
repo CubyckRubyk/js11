@@ -6,6 +6,28 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+
+        div {
+            width: 300px;
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+
+
+        }
+
+    </style>
 </head>
 <body>
 <!--1.-->
@@ -21,79 +43,42 @@
 <!--https://jsonplaceholder.typicode.com/comments-->
 
 
-<!--<script>-->
-<!--    // 'https://jsonplaceholder.typicode.com/users' -> []-->
-<!--    // 'https://jsonplaceholder.typicode.com/users/:id' -> {}-->
-<!--    -->
-<!--    fetch('https://jsonplaceholder.typicode.com/users')-->
-<!--        .then(response => {-->
-<!--            // console.log(response);-->
-<!--            return response.json();-->
-<!--        })-->
-<!--        .then(users => {-->
-<!--            for (const user of users) {-->
-<!--                let div = document.createElement('div');-->
-<!--                div.innerText = `user id - ${user.id}; user name - ${user.name}`-->
-<!--                document.body.append(div);-->
-<!--            }-->
-<!--        });-->
-
-
-<!--</script>-->
-<!--fetch('https://jsonplaceholder.typicode.com/posts')-->
-<!--//     .then(response => {-->
-<!--//         return response.json();-->
-<!--//     })-->
-<!--//     .then(posts => {-->
-<!--//         let wraper = document.createElement('div');-->
-<!--//         wraper.classList.add('wraper');-->
-<!--//         for (const post of posts) {-->
-<!--//             let divCard = document.createElement('div');-->
-<!--//             divCard.classList.add('post');-->
-<!--//             divCard.innerHTML = `-->
-<!--//                     <h3>ID: ${post.id}</h3>-->
-<!--//                     <h4>Title: ${post.title}</h4>-->
-<!--//                     <h5>Body: ${post.body}</h5>-->
-<!--//                     `;-->
-<!--//             wraper.appendChild(divCard);-->
-<!--//             document.body.appendChild(wraper);-->
-<!--//         }-->
-<!--//     });-->
-<!--fetch('https://jsonplaceholder.typicode.com/comments')-->
-<!--.then(response => response.json())-->
-<!--.then(comments => {-->
-<!--let wraper = document.createElement('div');-->
-<!--wraper.classList.add('wraper');-->
-<!--for (const comment of comments) {-->
-<!--let divCard = document.createElement('div');-->
-<!--divCard.classList.add('comment');-->
-<!--divCard.innerHTML = `-->
-<!--<h3>ID: ${comment.id}</h3>-->
-<!--<h4>Name: ${comment.name}</h4>-->
-<!--<h5>Email: ${comment.email}</h5>-->
-<!--<h6>Body: ${comment.body}</h6>-->
-<!--`;-->
-<!--wraper.appendChild(divCard);-->
-<!--document.body.appendChild(wraper);-->
-<!--}-->
-<!--})-->
-<!--</script>-->
 
 <script>
 
-    fetch('https://jsonplaceholder.typicode.com/posts')
+//    fetch('https://jsonplaceholder.typicode.com/posts')
+//        .then(response => {
+//            return response.json()
+//        // .then(json => console.log(json))
+//        })
+//    .then(posts => {
+//
+//        for (const post of posts) {
+//            let card = document.createElement('div');
+//
+//            card.innerHTML = `<p>body - ${post.body}</p>; <h3>id - ${post.id}</h3>; <h2>title - ${post.title}</h2>; <h3>userId - ${post.userId} </h3>`
+//           document.body.appendChild(card)
+//
+//        }
+//    })
+
+
+    fetch('https://jsonplaceholder.typicode.com/comments')
         .then(response => {
             return response.json()
-        // .then(json => console.log(json))
+          //  .then(json => console.log(json))
         })
-    .then(posts => {
-        for (const post of posts) {
-            let div = document.createElement('div');
-            div.innerText = `body - ${post.body}; id - ${post.id}; title - ${post.title}; userId - ${post.userId}`
-            document.body.append(div);
-        }
-    })
+        .then(comments => {
 
+
+       for (const comment of comments) {
+           let card = document.createElement('div');
+
+           card.innerHTML = `<p>body - ${comment.body}</p>; <h3>id - ${comment.id}</h3>; <h2>name - ${comment.name}</h2>; <h3>email - ${comment.email} </h3>; <h3>postId - ${comment.postId} </h3>`
+          document.body.appendChild(card)
+
+       }
+   })
 
 
 </script>
