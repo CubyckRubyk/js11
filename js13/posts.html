@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    const queryString = window.location.search;
+    const  urlParams = new URLSearchParams(queryString);
+    const usid = urlParams.get('user_id');
+    const postsJson = 'https://jsonplaceholder.typicode.com/users/' + usid +'/posts';
+    fetch(postsJson)
+        .then(response => {
+            return response.json()
+                //.then(json => console.log(json))
+                .then(posts => {
+                    for (const post of posts) {
+                        let card2 = document.createElement('div');
+
+                        card2.innerHTML = `<p>title - ${post.title}`
+                        document.body.appendChild(card2);
+
+                    }
+                })
+        })
+    console.log(postsJson);
+</script>
+</body>
+</html>
