@@ -6,6 +6,26 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+
+        div {
+            width: 300px;
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+    </style>
 </head>
 <body>
 <script>
@@ -21,7 +41,13 @@
                     for (const post of posts) {
                         let card2 = document.createElement('div');
 
-                        card2.innerHTML = `<p>title - ${post.title}`
+                        card2.innerHTML = `<p>title - ${post.title}</p>;<br>
+                        <p>userId - ${post.userId}</p>;<br>
+                        <p>id - ${post.id}</p>;<br>
+                        <p>body - ${post.body}</p>
+
+                        <a href="js13/post-details.html?post_id=${post.id}">Posts</a>
+`
                         document.body.appendChild(card2);
 
                     }
