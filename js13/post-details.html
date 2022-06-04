@@ -17,22 +17,21 @@
         .then(response => {
             return response.json()
                 //.then(json => console.log(json))
-                .then(elm => {
-                    for (const card3Element of card3) {
 
+                 .then(elm => {
+                     for (const el of elm) {
+                         let card3 = document.createElement('div');
 
-                        let card3 = document.createElement('div');
-
-                        card3.innerHTML = `<p>title - ${card3Element.title}</p>;<br>
-                        <p>userId - ${card3Element.userId}</p>;<br>
-                        <p>id - ${card3Element.id}</p>;<br>
-                        <p>body - ${card3Element.body}</p>
+                        card3.innerHTML = `<p>title - ${el.title}</p>;<br>
+                        <p>userId - ${el.userId}</p>;<br>
+                        <p>id - ${el.id}</p>;<br>
+                        <p>body - ${el.body}</p>
 
 `
                         document.body.appendChild(card3);
                     }
 
-                })
+              })
         })
     console.log(postJson);
 
