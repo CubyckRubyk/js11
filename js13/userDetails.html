@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+
+        div {
+            width: 300px;
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+    </style>
+</head>
+<body>
+<script>
+    const queryString = window.location.search;
+    const  urlParams = new URLSearchParams(queryString);
+    const usid = urlParams.get('user_id');
+    const postJson = 'https://jsonplaceholder.typicode.com/users/' + ;
+    fetch(postJson)
+        .then(response => {
+            return response.json()
+                //.then(json => console.log(json))
+
+                .then(elm => {
+
+                    let card3 = document.createElement('div');
+
+                    card3.innerHTML = `<p>title - ${elm.title}</p>;<br>
+                        <p>userId - ${elm.userId}</p>;<br>
+                        <p>id - ${elm.id}</p>;<br>
+                        <p>body - ${elm.body}</p>
+
+`
+                    document.body.appendChild(card3);
+
+
+                })
+        })
+    console.log(postJson);
+    const comments = 'https://jsonplaceholder.typicode.com/posts/' + postid +'/comments';
+    fetch(comments)
+        .then(response => {
+            return response.json()
+                .then(comments => {
+                    for (const com of comments)
+                    {let card4 = document.createElement('div');
+                        card4.innerHTML = `<p>postid - ${com.postId}</p>;<br>
+                        <p>name - ${com.name}</p>;<br>
+                        <p>id - ${com.id}</p>;<br>
+                        <p>email - ${com.email}</p>;<br>
+                        <p>body - ${com.body}</p>`
+                        document.body.appendChild(card4);
+                    }})})
+
+
+
+</script>
+</body>
+</html>
